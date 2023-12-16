@@ -3,7 +3,7 @@
 // ---------------------------------------------
 
 typedef struct CellData {
-    int exampleNum;
+    char exampleChar;
     // Put the cell's data here (and change the name)
 } CellData;
 
@@ -23,4 +23,5 @@ void mapCreate (Map* pMap, int width, int height);
 void mapDestroy (Map* pMap);
 
 void mapForEach (Map* pMap, forEachFuncPtr foreach);
+void mapForEachCellAndRow (Map* pMap, forEachFuncPtr foreachcell, forEachFuncPtr foreachrow);
 // ------------------------------------------

@@ -26,3 +26,14 @@ void mapForEach (Map* pMap, forEachFuncPtr foreach) {
         }
     }
 }
+
+// Like foreach except does something after each row. Meant mainly for printing, but general
+// enough to be used for anything that comes up
+void mapForEachCellAndRow (Map* pMap, forEachFuncPtr foreachcell, forEachFuncPtr foreachrow) {
+    for (int i = 0; i < pMap->height; i++) {
+        for (int j = 0; j < pMap->width; j++) {
+            foreachcell(&pMap->hTheMap[i][j]);
+        }
+        foreachrow(&pMap->hTheMap[i][pMap->width - 1]);
+    }
+}
