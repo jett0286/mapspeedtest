@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <wchar.h>
 #include "../include/map.h"
 
 // ACCESSING hTheMap uses the format pMap->hTheMap[y][x]. REMEMBER THIS

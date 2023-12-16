@@ -1,9 +1,11 @@
+#include <wchar.h>
+
 // ---------------------------------------------
 //  Template for the Map struct
 // ---------------------------------------------
 
 typedef struct CellData {
-    char exampleChar;
+    wchar_t exampleChar;
     // Put the cell's data here (and change the name)
 } CellData;
 

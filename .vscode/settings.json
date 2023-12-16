@@ -2,6 +2,7 @@
     "files.associations": {
         "*.asm": "wat",
         "ncurses.h": "c",
-        "map.h": "c"
+        "map.h": "c",
+        "stdlib.h": "c"
     }
 }
