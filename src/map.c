@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <wchar.h>
 #include "../include/map.h"
 
 // ACCESSING hTheMap uses the format pMap->hTheMap[y][x]. REMEMBER THIS
@@ -20,21 +19,21 @@ void mapDestroy (Map* pMap) {
     free (pMap->hTheMap);
 }
 
-void mapForEach (Map* pMap, forEachFuncPtr foreach) {
+void mapForEach (Map* pMap, forEachFuncPtr foreach, void* data) {
     for (int i = 0; i < pMap->height; i++) {
         for (int j = 0; j < pMap->width; j++) {
-            foreach(&pMap->hTheMap[i][j]);
+            foreach(&pMap->hTheMap[i][j], data);
         }
     }
 }
 
 // Like foreach except does something after each row. Meant mainly for printing, but general
 // enough to be used for anything that comes up
-void mapForEachCellAndRow (Map* pMap, forEachFuncPtr foreachcell, forEachFuncPtr foreachrow) {
+void mapForEachCellAndRow (Map* pMap, forEachFuncPtr foreachcell, forEachFuncPtr foreachrow, void* data) {
     for (int i = 0; i < pMap->height; i++) {
         for (int j = 0; j < pMap->width; j++) {
-            foreachcell(&pMap->hTheMap[i][j]);
+            foreachcell(&pMap->hTheMap[i][j], data);
         }
-        foreachrow(&pMap->hTheMap[i][pMap->width - 1]);
+        foreachrow(&pMap->hTheMap[i][pMap->width - 1], data);
     }
 }

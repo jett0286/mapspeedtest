@@ -16,7 +16,7 @@ typedef struct Map {
     // Put any map data in here
 } Map;
 
-typedef void* (forEachFuncPtr)(CellData*);
+typedef void* (forEachFuncPtr)(CellData*, void*);
 
 // ------------- NECESSARY ------------------
 
@@ -24,6 +24,6 @@ void mapCreate (Map* pMap, int width, int height);
 
 void mapDestroy (Map* pMap);
 
-void mapForEach (Map* pMap, forEachFuncPtr foreach);
-void mapForEachCellAndRow (Map* pMap, forEachFuncPtr foreachcell, forEachFuncPtr foreachrow);
+void mapForEach (Map* pMap, forEachFuncPtr foreach, void* data);
+void mapForEachCellAndRow (Map* pMap, forEachFuncPtr foreachcell, forEachFuncPtr foreachrow, void* data);
 // ------------------------------------------
