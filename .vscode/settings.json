@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.asm": "wat",
+        "ncurses.h": "c"
+    }
+}
