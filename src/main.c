@@ -26,18 +26,22 @@ void* scanValsFromFile (CellData* pCell, void* file) {
 }
 
 void* scanNewlineChar (CellData* pCell, void* file) {
-    wchar_t buffer;
+    char buffer;
     fwscanf((FILE*) file, L"%lc", buffer);
 }
 
 int main () {
     Map testMap;
     FILE* inFile = fopen("../data/board.txt", "r");
+    if (!inFile) {
+        printf ("oopsie doodle");
+    }
 
     setlocale(LC_ALL, "");
     mapCreate (&testMap, 80, 24);
     mapForEachCellAndRow (&testMap, scanValsFromFile, scanNewlineChar, inFile);
     mapForEachCellAndRow (&testMap, printVal, printNewline, NULL);
     mapDestroy (&testMap);
+    fclose (inFile);
     exit (EXIT_SUCCESS);
 }
