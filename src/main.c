@@ -7,12 +7,12 @@
 #define UPDATE_VALUE L'╣'
 
 void* updateNum (CellData* pCell, void* nothing) {
-    pCell->exampleChar = L'╣';
     return NULL;
 }
 
 void* printVal (CellData* pCell, void* nothing) {
     wprintf (L"%lc", pCell->exampleChar);
+    // wprintf (L"ɸ");
     return NULL;
 }
 
@@ -22,13 +22,14 @@ void* printNewline (CellData* pCell, void* nothing) {
 }
 
 void* scanValsFromFile (CellData* pCell, void* file) {
-    fwscanf ((FILE*) file, L"%lc", pCell->exampleChar);
+    //pCell->exampleChar = 0x0278;
+    fscanf ((FILE*) file, "%c", &pCell->exampleChar);
     return NULL;
 }
 
 void* scanNewlineChar (CellData* pCell, void* file) {
     char buffer;
-    fwscanf((FILE*) file, L"%lc", buffer);
+    fscanf((FILE*) file, "%c", &buffer);
     return NULL;
 }
 

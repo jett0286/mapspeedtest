@@ -5,7 +5,7 @@
 // ---------------------------------------------
 
 typedef struct CellData {
-    wchar_t exampleChar;
+    char exampleChar;
     // Put the cell's data here (and change the name)
 } CellData;
 
