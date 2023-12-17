@@ -22,7 +22,7 @@ void* printNewline (CellData* pCell, void* nothing) {
 }
 
 void* scanValsFromFile (CellData* pCell, void* file) {
-    fwscanf ((FILE*) file, L"%lc ", pCell->exampleChar);
+    fwscanf ((FILE*) file, L"%lc", pCell->exampleChar);
     return NULL;
 }
 
@@ -38,8 +38,8 @@ int main () {
     setlocale(LC_ALL, "");
     mapCreate (&testMap, 80, 24);
     mapForEachCellAndRow (&testMap, scanValsFromFile, scanNewlineChar, inFile);
+    fclose (inFile);
     mapForEachCellAndRow (&testMap, printVal, printNewline, NULL);
     mapDestroy (&testMap);
-    fclose (inFile);
     exit (EXIT_SUCCESS);
 }
